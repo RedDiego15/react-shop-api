@@ -1,13 +1,16 @@
-const res = require("express/lib/response");
-const Joi = require("joi");
-const productSchema = require("../schemas/product.schema");
 const boom = require("@hapi/boom");
-function Validador(schema, property) {
+function validatorHandler(schema, property) {
 	return (req, res, next) => {
 		const data = req[property]; //le enviamos propery por que la informacion dependiando de cual sea la accion va a estar en lugares diferentes body,params etc
+		console.error(
+			"aqui el error en validator handler"
+		);
 		const { error } =
 			schema.validate(
-				data
+				data,
+				{
+					abortEarly: false,
+				}
 			);
 		if (error) {
 			next(
@@ -17,6 +20,7 @@ function Validador(schema, property) {
 			);
 		}
 		next();
-		res.status(500).json({});
 	};
 }
+
+module.exports = validatorHandler;
