@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint"
   },
-  "author": "",
+  "author": "Diego Rojas",
   "license": "ISC",
   "dependencies": {
     "@hapi/boom": "^10.0.0",
