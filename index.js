@@ -1,5 +1,5 @@
 const express = require("express");
-const routerApi = require("./routes/index");
+const routerApi = require("./routes");
 //const cors = require("cors");
 const {
 	logErrors,
