@@ -8,7 +8,7 @@ const {
 } = require("./middlewares/error");
 
 const app = express();
-const port = 3000;
+const port = process.env || 3000;
 
 app.use(express.json()); //for recive information in json
 const whiteList = ["https://localhost:5500", "https://myapp.com"];
@@ -33,6 +33,7 @@ const options = {
 	},
 };
 app.use(cors());
+//app.use(cors(options)); //for only acces from the whiteList
 
 app.get("/", (req, res) => {
 	res.send("Hola mi server en express");

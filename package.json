@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +15,8 @@
   },
   "devDependencies": {
     "faker": "^5.5.3"
+  },
+  "engines":{
+    "node": "16.13.2"
   }
 }
