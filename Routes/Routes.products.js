@@ -6,8 +6,6 @@ const {
 	updateProductSchema,
 	getProductSchema,
 } = require("../schemas/product.schema");
-console.log("the schema");
-console.log(getProductSchema);
 
 const router = express.Router();
 const service = new ProductService();
