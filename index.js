@@ -1,6 +1,6 @@
 const express = require("express");
 const routerApi = require("./routes");
-
+const cors = require("cors");
 const {
 	logErrors,
 	errorHandler,
@@ -10,7 +10,29 @@ const {
 const app = express();
 const port = 3000;
 
-app.use(express.json());
+app.use(express.json()); //for recive information in json
+const whiteList = ["https://localhost:5500", "https://myapp.com"];
+const options = {
+	origin: (origin, callback) => {
+		if (
+			whiteList.includes(
+				origin
+			)
+		) {
+			callback(
+				null,
+				true
+			);
+		} else {
+			callback(
+				new Error(
+					"permission denied"
+				)
+			);
+		}
+	},
+};
+app.use(cors());
 
 app.get("/", (req, res) => {
 	res.send("Hola mi server en express");
