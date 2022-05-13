@@ -8,7 +8,7 @@ const {
 } = require("./middlewares/error");
 
 const app = express();
-const port = process.env || 3000;
+const port = process.env.Port || 3000;
 
 app.use(express.json()); //for recive information in json
 const whiteList = ["https://localhost:5500", "https://myapp.com"];
@@ -45,5 +45,5 @@ app.use(boomErrorHandler);
 app.use(errorHandler);
 
 app.listen(port, () => {
-	console.log("listening on port 3000");
+	console.log(`listening on port ${port}`);
 });
