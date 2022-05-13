@@ -1,6 +1,6 @@
 const express = require("express");
 const routerApi = require("./Routes");
-const cors = require("cors");
+//const cors = require("cors");
 const {
 	logErrors,
 	errorHandler,
@@ -32,7 +32,7 @@ const options = {
 		}
 	},
 };
-app.use(cors());
+//app.use(cors());
 //app.use(cors(options)); //for only acces from the whiteList
 
 app.get("/", (req, res) => {
