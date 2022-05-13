@@ -1,4 +1,4 @@
-const productsRouter = require("./Routes.products");
+const productsRouter = require("./routes.products");
 const categoriesRouter = require("./categories");
 const usersRouter = require("./users");
 const express = require("express");
